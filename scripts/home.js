@@ -4,6 +4,7 @@ const loadAllIssue=()=>{
     .then((response)=>response.json())
     .then((data)=>displayAllIssue(data.data));
 }
+
 const displayAllIssue=(issues)=>{
     console.log(issues);
 
@@ -16,8 +17,19 @@ const displayAllIssue=(issues)=>{
         div.innerHTML=`
              <div class="space-y-3 p-4 bg-white shadow-md">
                 <div class="flex justify-between items-center">
-                    <img src="./assets/Open-Status.png" alt="" class="block max-w-6 max-h-6">
-                    <span class="text-[#EF4444] font-medium bg-[#FEECEC] py-[6px] px-[25.5px] border border-none rounded-2xl text-[12px]">HIGH</span>
+                    <img src="${
+                        issue.priority === "low"
+                        ? "./assets/Closed- Status .png"
+                        : "./assets/Open-Status.png"}" 
+                        alt="" class="block max-w-6 max-h-6">
+                    
+                    <span class="font-medium py-[6px] px-[25.5px] rounded-2xl text-[12px] uppercase
+                        ${issue.priority === "high" 
+                        ? "text-[#EF4444] bg-[#FEECEC]" 
+                         : issue.priority === "medium" 
+                        ? "text-[#D97706] bg-[#FFF8DB]" 
+                        : "text-gray-500 bg-gray-200"}">${issue.priority}
+                    </span>
                 </div>
                 <h2 class="text-[14px] font-semibold">Fix navigation menu on mobile devices</h2>
                 <p class="text-[#64748B] text-[12px]">The navigation menu doesn't collapse properly on mobile devices...</p>
