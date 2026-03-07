@@ -21,7 +21,7 @@ const displayAllIssue=(issues)=>{
         const div=document.createElement('div');
         div.innerHTML=`
              <div class="space-y-3 h-[100%] rounded-t-lg p-4 bg-white shadow-md 
-             ${issue.priority==='low'?"border-t-4 border-purple-500 "
+             ${issue.status==='closed'?"border-t-4 border-purple-500 "
              :"border-t-4 border-green-500"}  ">
                 <div class="flex justify-between items-center">
                     <img src="${
@@ -40,14 +40,14 @@ const displayAllIssue=(issues)=>{
                 </div>
                 <h2 class="text-[14px] font-semibold">${issue.title}</h2>
                 <p class="text-[#64748B] text-[12px]">${issue.description}</p>
-                <div class="flex flex-col md:flex-row items-center gap-1 justify-start">
+                <div class="flex flex-col  items-center gap-1 justify-start">
                     <div class="flex  justify-center items-center text-[#EF4444] font-medium bg-[#FEECEC] py-[6px] px-[4px] border border-[#FECACA] rounded-2xl text-[12px]">
                         <img src="./assets/BugDroid.png" alt="" class="block max-w-[0.75rem] max-h-[0.75rem]" >
-                        <span class="text-[11px]">BUG</span>
+                        <span class="text-[11px]">${issue.labels[0] ? issue.labels[0] : "Not Found"}</span>
                     </div>
                     <div class="flex justify-center items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[6px] px-[4px] border border-[#FDE68A] rounded-2xl text-[12px]">
                         <img src="./assets/Lifebuoy.png" alt="" class="block max-w-[0.75rem] max-h-[0.75rem]">
-                        <span class="text-[11px] text-nowrap">HELP WANTED</span>
+                        <span class="text-[11px] text-nowrap">${issue.labels[1] ? issue.labels[1] : "Not Found"}</span>
                     </div>
                 </div>
                 <hr class=" border  border-gray-300 ">
@@ -73,11 +73,11 @@ const displayOpenIssue=(Opens)=>{
     allIssue.innerHTML='';
     let count=0;
     for(let open of Opens){
-        if(open.priority==='high' || open.priority==='medium'){
+        if(open.status==='open'){
             const div=document.createElement('div');
         div.innerHTML=`
              <div class="space-y-3 h-[100%] rounded-t-lg p-4 bg-white shadow-md 
-             ${open.priority==='low'?"border-t-4 border-purple-500 "
+             ${open.status==='closed'?"border-t-4 border-purple-500 "
              :"border-t-4 border-green-500"}  ">
                 <div class="flex justify-between items-center">
                     <img src="${
@@ -96,14 +96,14 @@ const displayOpenIssue=(Opens)=>{
                 </div>
                 <h2 class="text-[14px] font-semibold">${open.title}</h2>
                 <p class="text-[#64748B] text-[12px]">${open.description}</p>
-                <div class="flex flex-col md:flex-row items-center gap-1 justify-start">
+                <div class="flex flex-col   items-center gap-1 justify-start">
                     <div class="flex  justify-center items-center text-[#EF4444] font-medium bg-[#FEECEC] py-[6px] px-[4px] border border-[#FECACA] rounded-2xl text-[12px]">
                         <img src="./assets/BugDroid.png" alt="" class="block max-w-[0.75rem] max-h-[0.75rem]" >
-                        <span class="text-[11px]">BUG</span>
+                        <span class="text-[11px] uppercase">${open.labels[0] ? open.labels[0] : "Not Found"}</span>
                     </div>
                     <div class="flex justify-center items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[6px] px-[4px] border border-[#FDE68A] rounded-2xl text-[12px]">
                         <img src="./assets/Lifebuoy.png" alt="" class="block max-w-[0.75rem] max-h-[0.75rem]">
-                        <span class="text-[11px] text-nowrap">HELP WANTED</span>
+                        <span class="text-[11px] text-nowrap uppercase">${open.labels[1] ? open.labels[1] : "Not Found"}</span>
                     </div>
                 </div>
                 <hr class=" border  border-gray-300 ">
@@ -132,11 +132,11 @@ const displayCloseIssue=(Closes)=>{
     allIssue.innerHTML='';
     let count=0;
     for(let close of Closes){
-        if(close.priority==='low'){
+        if(close.status==='closed'){
             const div=document.createElement('div');
         div.innerHTML=`
              <div class="space-y-3 h-[100%] rounded-t-lg p-4 bg-white shadow-md 
-             ${close.priority==='low'?"border-t-4 border-purple-500 "
+             ${close.status==='closed'?"border-t-4 border-purple-500 "
              :"border-t-4 border-green-500"}  ">
                 <div class="flex justify-between items-center">
                     <img src="${
@@ -155,14 +155,14 @@ const displayCloseIssue=(Closes)=>{
                 </div>
                 <h2 class="text-[14px] font-semibold">${close.title}</h2>
                 <p class="text-[#64748B] text-[12px]">${close.description}</p>
-                <div class="flex flex-col md:flex-row items-center gap-1 justify-start">
+                <div class="flex flex-col  items-center gap-1 justify-start">
                     <div class="flex  justify-center items-center text-[#EF4444] font-medium bg-[#FEECEC] py-[6px] px-[4px] border border-[#FECACA] rounded-2xl text-[12px]">
                         <img src="./assets/BugDroid.png" alt="" class="block max-w-[0.75rem] max-h-[0.75rem]" >
-                        <span class="text-[11px]">BUG</span>
+                        <span class="text-[11px]">${close.labels[0] ? close.labels[0] : "Not Found"}</span>
                     </div>
                     <div class="flex justify-center items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[6px] px-[4px] border border-[#FDE68A] rounded-2xl text-[12px]">
                         <img src="./assets/Lifebuoy.png" alt="" class="block max-w-[0.75rem] max-h-[0.75rem]">
-                        <span class="text-[11px] text-nowrap">HELP WANTED</span>
+                        <span class="text-[11px] text-nowrap">${close.labels[1] ? close.labels[1] : "Not Found"}</span>
                     </div>
                 </div>
                 <hr class=" border  border-gray-300 ">
