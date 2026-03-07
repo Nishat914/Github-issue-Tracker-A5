@@ -1,14 +1,37 @@
-const loadAllIssue=()=>{
-    const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues`
-    fetch(url)
-    .then((response)=>response.json())
-    .then((data)=>displayAllIssue(data.data));
-}
 const updateCounter=(count)=>{
     const counter=document.getElementById('counter');
     counter.innerText='';
     counter.innerText=`${count} Issues`;
 }
+
+const setActiveBtn = (activeId) => {
+
+    const allBtn = document.getElementById("allBtn");
+    const openBtn = document.getElementById("openBtn");
+    const closeBtn = document.getElementById("closeBtn");
+
+    allBtn.classList.remove("btn-primary");
+    openBtn.classList.remove("btn-primary");
+    closeBtn.classList.remove("btn-primary");
+
+    allBtn.classList.add("btn-outline","text-gray-400");
+    openBtn.classList.add("btn-outline","text-gray-400");
+    closeBtn.classList.add("btn-outline","text-gray-400");
+
+    const activeBtn = document.getElementById(activeId);
+
+    activeBtn.classList.remove("btn-outline","text-gray-400");
+    activeBtn.classList.add("btn-primary");
+}
+
+const loadAllIssue=()=>{
+    setActiveBtn("allBtn");
+    const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues`
+    fetch(url)
+    .then((response)=>response.json())
+    .then((data)=>displayAllIssue(data.data));
+}
+
 
 const displayAllIssue=(issues)=>{
     
@@ -63,6 +86,7 @@ const displayAllIssue=(issues)=>{
 loadAllIssue()
 
 const loadOpenIssue=()=>{
+    setActiveBtn("openBtn");
     const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues`
     fetch(url)
     .then((response)=>response.json())
@@ -121,6 +145,7 @@ const displayOpenIssue=(Opens)=>{
 }
 
 const loadCloseIssue=()=>{
+    setActiveBtn("closeBtn");
     const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues`
     fetch(url)
     .then((response)=>response.json())
