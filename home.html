@@ -20,15 +20,15 @@
 </head>
 <body>
     <header>
-        <div class="navbar bg-base-100 shadow-sm">
-            <div class="flex-1 ">
+        <div class="navbar bg-base-100 shadow-sm flex flex-col md:flex-row justify-between gap-2 ">
+            <div class=" ">
                 <div class="flex items-center">
                      <img src="./assets/github-logo.png" alt="" class="block max-w-9">
                  <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
                 </div>
                
             </div>
-            <div class="flex gap-2">
+            <div class="flex flex-col md:flex-row gap-2">
                
                 <label class="input">
                  <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -49,9 +49,16 @@
             
          </div>
       
-    </div>
-  </div>
-</div>
+         </div>
+         </div>
+        </div>
     </header>
+    <section class="w-[80%] md:w-[70%] mx-auto mt-10 bg-white shadow-md" >
+        <div class="p-6">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-outline text-gray-400">Open</button>
+            <button class="btn btn-outline text-gray-400">Closed</button>
+        </div>
+    </section>
 </body>
 </html>
