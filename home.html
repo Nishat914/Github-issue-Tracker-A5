@@ -55,9 +55,9 @@
     </header>
     <section class="w-[80%]  mx-auto mt-10 bg-white shadow-md" >
         <div class="p-6">
-            <button  class="btn btn-primary">All</button>
-            <button class="btn btn-outline text-gray-400">Open</button>
-            <button class="btn btn-outline text-gray-400">Closed</button>
+            <button onclick="loadAllIssue()" class="btn btn-primary">All</button>
+            <button onclick="loadOpenIssue()" class="btn btn-outline text-gray-400">Open</button>
+            <button onclick="loadCloseIssue()" class="btn btn-outline text-gray-400">Closed</button>
         </div>
     </section>
     <section class="w-[80%]  mx-auto mt-2 bg-white shadow-md p-6" >
@@ -67,7 +67,7 @@
                     <img src="./assets/Aperture.png" alt="">
                 </div>
                  <div>
-                    <p class="font-semibold text-[#1F2937]">0 Issues</p>
+                    <p id="counter" class="font-semibold text-[#1F2937]">0 Issues</p>
                     <p class="text-[#64748B]">Track and manage your project issues</p>
                  </div>
             </div>
@@ -85,7 +85,7 @@
         
     </section>
     <section class="w-[80%]  mx-auto mt-2 bg-white shadow-md p-4 ">
-        <div id="allIssue" class="grid grid-cols-2 md:grid-cols-4 gap-3 ">
+        <div id="allIssue" class="grid grid-cols-1 md:grid-cols-4 gap-3 ">
             
         </div>
     </section>
