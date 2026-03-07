@@ -24,8 +24,19 @@ const setActiveBtn = (activeId) => {
     activeBtn.classList.add("btn-primary");
 }
 
+const manageSpinner=(status)=>{
+    if(status  == true){
+        document.getElementById('spinner').classList.remove("hidden");
+        document.getElementById('Container').classList.add("hidden");
+    }else{
+        document.getElementById('Container').classList.remove("hidden");
+        document.getElementById('spinner').classList.add("hidden");
+    }
+}
+
 const loadAllIssue=()=>{
     setActiveBtn("allBtn");
+    manageSpinner(true);
     const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues`
     fetch(url)
     .then((response)=>response.json())
@@ -81,12 +92,14 @@ const displayAllIssue=(issues)=>{
         allIssue.appendChild(div);
         count++;
     }
+    manageSpinner(false);
     updateCounter(count);
 }
 loadAllIssue()
 
 const loadOpenIssue=()=>{
     setActiveBtn("openBtn");
+    manageSpinner(true);
     const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues`
     fetch(url)
     .then((response)=>response.json())
@@ -140,12 +153,14 @@ const displayOpenIssue=(Opens)=>{
 
         }
     }
+    manageSpinner(false);
     updateCounter(count);
 
 }
 
 const loadCloseIssue=()=>{
     setActiveBtn("closeBtn");
+    manageSpinner(true);
     const url=`https://phi-lab-server.vercel.app/api/v1/lab/issues`
     fetch(url)
     .then((response)=>response.json())
@@ -200,6 +215,7 @@ const displayCloseIssue=(Closes)=>{
 
         }
     }
+    manageSpinner(false);
     updateCounter(count);
 
 }
