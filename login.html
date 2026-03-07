@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in</title>
+    <!-- daisyui+tailwind  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font-awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <section class="w-[70%] md:w-[45%] mx-auto my-10 bg-white shadow-md" >
+        <div class="text-center p-6 space-y-4">
+            <img src="./assets/github-logo.png" alt="" class="mx-auto">
+            <h2 class="font-bold text-2xl text-[#1F2937]">GitHub Issues Tracker</h2>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+        </div>
+        <div class="mx-auto px-6">
+            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
+            <!-- <legend class="fieldset-legend">Login</legend> -->
+
+            <label class="label">Username</label>
+            <input type="email" class="input w-full" placeholder="Enter Username" />
+            <p class="text-[#4A00FF]">Default: admin</p>
+            <br>
+
+            <label class="label">Password</label>
+            <input type="password" class="input w-full" placeholder="Enter Password" />
+            <p class="text-[#4A00FF]">Default: admin123</p>
+
+            <button class="btn  btn-primary mt-4">Sign In</button>
+            </fieldset>
+        </div> 
+        <div class="mx-auto px-6 my-8 text-center">
+            <p class="text-gray-400 mb-4">OR</p>
+            <hr class=" border  border-gray-300 ">
+        </div>
+        <div class="mx-auto p-6  text-center ">
+            <p class="text-gray-400 mb-8">Demo Credentials:</p>
+            <p class="font-bold">Username:<span class="text-gray-400 font-normal"> admin</span></p>
+            <p class="font-bold ">Password:<span class="text-gray-400 font-normal"> admin123</span></p>
+        </div>
+
+    </section>
+</body>
+</html>
