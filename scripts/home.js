@@ -15,7 +15,9 @@ const displayAllIssue=(issues)=>{
     for(let issue of issues){
         const div=document.createElement('div');
         div.innerHTML=`
-             <div class="space-y-3 p-4 bg-white shadow-md">
+             <div class="space-y-3 rounded-t-lg p-4 bg-white shadow-md 
+             ${issue.priority==='low'?"border-t-4 border-purple-500 "
+             :"border-t-4 border-green-500"}  ">
                 <div class="flex justify-between items-center">
                     <img src="${
                         issue.priority === "low"
@@ -33,8 +35,8 @@ const displayAllIssue=(issues)=>{
                 </div>
                 <h2 class="text-[14px] font-semibold">Fix navigation menu on mobile devices</h2>
                 <p class="text-[#64748B] text-[12px]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                <div class="flex items-center gap-1 justify-start">
-                    <div class="flex justify-center items-center text-[#EF4444] font-medium bg-[#FEECEC] py-[6px] px-[4px] border border-[#FECACA] rounded-2xl text-[12px]">
+                <div class="flex flex-col md:flex-row items-center gap-1 justify-start">
+                    <div class="flex  justify-center items-center text-[#EF4444] font-medium bg-[#FEECEC] py-[6px] px-[4px] border border-[#FECACA] rounded-2xl text-[12px]">
                         <img src="./assets/BugDroid.png" alt="" class="block max-w-[0.75rem] max-h-[0.75rem]" >
                         <span class="text-[11px]">BUG</span>
                     </div>
