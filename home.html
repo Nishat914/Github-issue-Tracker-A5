@@ -92,8 +92,67 @@
             
         </div>
     </section>
-    <img src="./assets/Closed- Status .png" alt="">
-    <script src="./scripts/login.js"></script>
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
+    
+    <div class="modal-box">
+    <div id="detailContainer" class="bg-white shadow-md p-6 space-y-6">
+        <!-- <h2 class="font-bold text-2xl">fix navigation</h2>
+        <div class="flex justify-evenly items-center">
+            <span>open</span>
+            <p> Opened by johon doe</p>
+            <p>1/15/24</p>
+        </div>
+        <div class="flex gap-1">
+            <p>bug</p>
+            <p>help wanted</p>
+        </div>
+        <p>the navigation menu</p>
+        <div clas="flex justify-between items-center">
+            <div>
+                <p>Assignee:</p>
+                <p>jane-smith</p>
+            </div>
+            <div>
+                <p>priority</p>
+                <span>high</span>
+            </div>
+        </div> -->
+    </div>
+    
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-primary">Close</button>
+      </form> 
+    </div>
+     </div>
+    </dialog>
+    <!-- <div id="detailContainer" class="bg-white shadow-md p-6">
+        <h2 class="font-bold text-2xl">fix navigation</h2>
+        <div class="flex justify-evenly items-center">
+            <span>open</span>
+            <p class="text-[12px] text-gray-400"> Opened by <span class="text-[12px] text-gray-500 font-semibold">johon doe</span></p>
+            <p class="text-[12px] text-gray-400">1/15/24</p>
+        </div>
+        <div class="flex gap-1">
+            <p>bug</p>
+            <p>help wanted</p>
+        </div>
+        <p class="text-[14px] text-gray-400">the navigation menu</p>
+        <div class="flex justify-between items-center flex-row">
+            <div>
+                <p class="text-[12px] text-gray-400">Assignee:</p>
+                <p class="text-[14px] text-gray-500 font-semibold">jane-smith</p>
+            </div>
+            <div>
+                <p class="text-[12px] text-gray-400">priority</p>
+                <span>high</span>
+            </div>
+        </div>
+    </div> -->
+    
     <script src="./scripts/home.js"></script>
 </body>
 </html>
