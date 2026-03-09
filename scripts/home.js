@@ -65,7 +65,7 @@ const displyDetails=(detail)=>{
         <div class="flex justify-between items-center flex-row">
             <div>
                 <p class="text-[12px] text-gray-400">Assignee:</p>
-                <p class="text-[14px] text-gray-500 font-semibold">${detail.assignee}</p>
+                <p class="text-[14px] text-gray-500 font-semibold">${detail.assignee ? detail.assignee : "Not Found"}</p>
             </div>
             <div>
                 <p class="text-[12px] text-gray-400">priority:</p>
@@ -112,6 +112,14 @@ const displayAllIssue=(issues)=>{
         </div>
         `;
         }
+        else if(label === "help wanted"){
+                return `
+            <div class="flex items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[4px] px-[8px] border border-[#FDE68A] rounded-2xl text-[12px]">
+            <img src="./assets/Lifebuoy.png" class="max-w-[0.75rem] max-h-[0.75rem]">
+            <span class="ml-1">${label}</span>
+            </div>
+             `;
+            }
 
         else if(label === "enhancement"){
         return `
@@ -122,14 +130,13 @@ const displayAllIssue=(issues)=>{
         `;
         }
 
-         else{
+          else{
            return `
-        <div class="flex items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[4px] px-[8px] border border-[#FDE68A] rounded-2xl text-[12px]">
-            <img src="./assets/Lifebuoy.png" class="max-w-[0.75rem] max-h-[0.75rem]">
+            <div class="flex items-center text-purple-700 font-medium bg-purple-100 py-[4px] px-[8px] border border-purple-400 rounded-2xl text-[12px]">
             <span class="ml-1">${label}</span>
-        </div>
-        `;
-        }
+            </div>
+             `;
+             }
 
         }).join('');
         div.innerHTML=`
@@ -196,6 +203,14 @@ const displayOpenIssue=(Opens)=>{
             </div>
             `;
             }
+            else if(label === "help wanted"){
+                return `
+            <div class="flex items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[4px] px-[8px] border border-[#FDE68A] rounded-2xl text-[12px]">
+            <img src="./assets/Lifebuoy.png" class="max-w-[0.75rem] max-h-[0.75rem]">
+            <span class="ml-1">${label}</span>
+            </div>
+             `;
+            }
 
             else if(label === "enhancement"){
             return `
@@ -205,15 +220,15 @@ const displayOpenIssue=(Opens)=>{
             </div>
             `;
             }
-
             else{
-           return `
-            <div class="flex items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[4px] px-[8px] border border-[#FDE68A] rounded-2xl text-[12px]">
-            <img src="./assets/Lifebuoy.png" class="max-w-[0.75rem] max-h-[0.75rem]">
+            return 
+            `
+            <div class="flex items-center text-purple-700 font-medium bg-purple-100 py-[4px] px-[8px] border border-purple-400 rounded-2xl text-[12px]">
             <span class="ml-1">${label}</span>
             </div>
              `;
              }
+            
 
             }).join('');
         div.innerHTML=`
@@ -282,6 +297,14 @@ const displayCloseIssue=(Closes)=>{
             </div>
             `;
             }
+            else if(label === "help wanted"){
+                return `
+            <div class="flex items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[4px] px-[8px] border border-[#FDE68A] rounded-2xl text-[12px]">
+            <img src="./assets/Lifebuoy.png" class="max-w-[0.75rem] max-h-[0.75rem]">
+            <span class="ml-1">${label}</span>
+            </div>
+             `;
+            }
 
             else if(label === "enhancement"){
             return `
@@ -294,8 +317,7 @@ const displayCloseIssue=(Closes)=>{
 
             else{
            return `
-            <div class="flex items-center text-[#D97706] font-medium bg-[#FFF8DB] py-[4px] px-[8px] border border-[#FDE68A] rounded-2xl text-[12px]">
-            <img src="./assets/Lifebuoy.png" class="max-w-[0.75rem] max-h-[0.75rem]">
+            <div class="flex items-center text-purple-700 font-medium bg-purple-100 py-[4px] px-[8px] border border-purple-400 rounded-2xl text-[12px]">
             <span class="ml-1">${label}</span>
             </div>
              `;
@@ -346,6 +368,7 @@ document.getElementById('btnSearch').addEventListener('click',()=>{
     const input = document.getElementById('inputSearch');
     const searchValue=input.value.trim().toLowerCase() ;
     // console.log(searchValue);
+    manageSpinner(true);
     setActiveBtn("allBtn");
 
     fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
@@ -354,5 +377,6 @@ document.getElementById('btnSearch').addEventListener('click',()=>{
         const allWords = data.data;
         
         displayAllIssue(allWords);
+        manageSpinner(false);
     });
 })
